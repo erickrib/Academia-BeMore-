@@ -2,7 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Varta:wght@300;400;500;600;700&display=swap');
 
 /**********************************/
 /* 0. Variáveis
@@ -20,7 +19,7 @@
 /* 0. Variáveis
 /**********************************/
 :root {
-    --ff-primary: 'Varta', Arial, Helvetica, sans-serif;
+    --ff-primary: Arial, Helvetica, sans-serif;
     --ff-title: 'Bangers', Arial, Helvetica, sans-serif;
     --clr-black-dark: #191A1F;
     --clr-black-light: #222325;
@@ -38,7 +37,9 @@
 *::after {
     box-sizing: border-box;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 body {
     background-color: var(--clr-black-light);
 }
@@ -92,17 +93,22 @@ p {
     font-size: 0.75em;
 }
 
+.botao:hover{
+    transition: 0.5s;
+    background-color:var(--clr--red-light);
+}
 /**********************************/
 /* 2. Header/ Menu
 /**********************************/
 .menu {
-    max-width: 960px;
+ 
     margin: 0 auto;
     font-size: 0.7em;
 }
 
 .menu-abm {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     background-color: var(--clr-black-dark);
 }
@@ -114,10 +120,10 @@ p {
 
 .menu__info {
     width: 800px;
-    height: 60px;
+    height: 40px;
     display: flex;
     flex-wrap: wrap;
-    align-content: center;
+    align-content: flex-start;
     justify-content: space-evenly;
 }
 
@@ -127,13 +133,26 @@ p {
     padding-right: 10px;
 }
 
-.nav {
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
-    background-color: var(--clr--red-light);
+.nav{
+    display: none;
 }
 
+
+@media(min-width: 576px){
+    .nav {
+        height: 50px;
+        display: flex;
+        justify-content: space-around;
+        background-color: var(--clr--red-light);
+    }
+    .menu-abm {
+        flex-wrap: nowrap;
+    }
+    .menu__info {
+        height: 60px;
+        align-content: center;
+    }
+}
 @media (min-width: 775px){
 
    .nav{ height: 35px;
@@ -586,7 +605,6 @@ p {
 /**********************************/
 .rodape {
     background-color: var(--clr-black-dark);
-    max-width: 960px;
     margin: 0 auto;
 
 }
